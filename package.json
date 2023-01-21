@@ -1,0 +1,35 @@
+{
+  "name": "simple-mock-backend",
+  "version": "1.0.0",
+  "description": "A simple and ready-made backend mock API for frontend development",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gohilprashant/simple-mock-backend.git"
+  },
+  "keywords": [
+    "backend",
+    "mock",
+    "API",
+    "prototyping",
+    "Express",
+    "Node.js",
+    "REST"
+  ],
+  "author": "Prashant Gohil",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gohilprashant/simple-mock-backend/issues"
+  },
+  "homepage": "https://github.com/gohilprashant/simple-mock-backend#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
