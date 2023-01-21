@@ -24,7 +24,28 @@ async function writeDb(data) {
 export const getAllPosts = async (req, res) => {
   try {
     const data = await readDb();
+    // Send the posts in response
     res.json(data.posts);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Server error');
+  }
+};
+
+export const getPostById = async (req, res) => {
+  // Get id from params
+  const { id } = req.params;
+  try {
+    const data = await readDb();
+    // Find post by id
+    const post = data.posts.find((p) => p.id === id);
+    if (!post) {
+      // Send 404 if post not found
+      res.status(404).send('Post not found');
+      return;
+    }
+    // Send the post in response
+    res.send(post);
   } catch (error) {
     console.log(error);
     res.status(500).send('Server error');
