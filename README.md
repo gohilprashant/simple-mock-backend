@@ -9,7 +9,64 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 - Node.js and npm (comes with Node.js)
+
 - A text editor of your choice
+
+### Installation
+
+1. Clone the repository to your local machine
+
+git clone https://github.com/gohilprashant/simple-mock-backend.git
+
+2. Go to the project directory
+
+```
+
+cd simple-mock-backend
+
+```
+
+3. Install the dependencies
+
+```
+
+npm install
+
+```
+
+4. Start the server
+
+```
+npm start
+```
+
+The server will start running on `http://localhost:5000`
+
+### Configurations
+
+The `config/config.js` file contains the following settings:
+
+- `PORT`: The port number on which the server will run. The default value is `5000`.
+
+- `POSTS_FILE_PATH`: The path of the json file where the posts data is stored. The default value is `data/posts.json`.
+
+## Routes
+
+The API has the following routes:
+
+- `GET api/posts`: Get all posts
+
+- `GET api/posts/:id`: Get post by id
+
+- `POST api/posts`: Add a new post
+
+  - Request body: { title, body, category }
+
+- `PUT api/posts/:id`: Update a post by id
+
+  - Request body: { title, body, category }
+
+- `DELETE api/posts/:id`: Delete a post by id
 
 ## Built With
 
