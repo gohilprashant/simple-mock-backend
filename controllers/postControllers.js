@@ -1,4 +1,5 @@
 import { promises as fs } from 'fs';
+import { v4 as uuid } from 'uuid';
 import { POSTS_FILE_PATH } from '../config/config.js';
 
 // Asynchronous function to read the file and parse its contents as JSON
@@ -46,6 +47,20 @@ export const getPostById = async (req, res) => {
     }
     // Send the post in response
     res.send(post);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Server error');
+  }
+};
+
+export const addNewPost = async (req, res) => {
+  const { title, body, category } = req.body;
+  try {
+    const data = await readDb();
+    const newPost = { id: uuid(), title, body, category };
+    data.posts.push(newPost);
+    await writeDb(data);
+    res.status(200).send(newPost);
   } catch (error) {
     console.log(error);
     res.status(500).send('Server error');
